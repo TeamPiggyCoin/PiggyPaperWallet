@@ -1,11 +1,12 @@
 **** LOOKING FOR THE ZIP FILE TO DOWNLOAD? ************************************
-If you're on already at https://github.com/cantonbecker/bitcoinpaperwallet
+If you're on already at https://github.com/TeamPiggyCoin/PiggyCoinPaperWallet
 Then just look for the button that says "Download ZIP". Look to your right -->
 *******************************************************************************
 
-*** bitcoinpaperwallet.com ***
+*** PiggyCoinPaperWallet ***
 
-This project is a fork of bitaddress.org, the original trustworthy
+This project is a fork of bitcoinpaperwallet.com,
+which is a fork of bitaddress.org, the original trustworthy
 JavaScript powered offline bitcoin address generator. 
 
 This attractive paper wallet design is two-sided and folds up to
@@ -18,10 +19,10 @@ well as support for creating wallets using "vanity keys", passphrases ("brain wa
 or even rolling dice or shuffling cards.
 
 This generator also includes support and designs for making
-Litecoin and Dogecoin wallets.
+Piggycoin and Dogecoin wallets.
 
 Use the "Verify or Decrypt" tab to decrypt a BIP38 password-encrypted wallet, check the
-integrity of any private key, or even duplicate an exising wallet by scanning its
+integrity of any private key, or even duplicate an existing wallet by scanning its
 QR code.
 
 *** HOW TO USE THIS GENERATOR ***
@@ -51,29 +52,6 @@ base-64 encoded) and into an images directory to make the code easier to review.
 
 All cryptographic functions are verifiably identical to those in bitaddress.org.
 (Run a "diff" between this project and bitaddress.org if you want to be sure.)
-
-*** HOW TO VERIFY THE AUTHENTICITY OF THIS DOWNLOAD ***
-
-After downloading the ZIP package for this generator, you should find a file 
-named generate-wallet.html.sig which you can use to:
-
-* Verify that generate-wallet.html hasn't been tampered with, and
-* Get proof that it really was authored by Canton Becker (canton@gmail.com) 
-  whose GPG public key and fingerprint should be confirmed at http://cantonbecker.com
-  and/or by searching bitcointalk.org, etc.
-  
-For example, if you have GPG installed, you should be able cd to the appropriate 
-directory and type in these two commands:
-
-  gpg --recv-key 36E1D9B6
-  gpg --verify --with-fingerprint generate-wallet.html.sig generate-wallet.html 
-
-And then verify the resulting signature's fingerprint against Canton Becker's
-published fingerprint at http://cantonbecker.com
-
-If you get warnings like "This key is not certified, there is no indication that
-the key belongs to the owner" do not worry, this is normal.
-
 
 *** DONATIONS ***
 

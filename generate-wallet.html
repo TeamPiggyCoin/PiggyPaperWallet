@@ -1,18 +1,13 @@
 <!doctype html>
 <html>
 <head>
-	<title>Bitcoin Paper Wallet Generator</title>
+	<title>PiggyCoin Paper Wallet Generator</title>
 	<!--
     
-    generate-wallet.html (from https://bitcoinpaperwallet.com)
+    generate-wallet.html (forked from https://bitcoinpaperwallet.com)
     
     Contact: Canton Becker / canton@gmail.com / www.cantonbecker.com
-    
-    generate-wallet.html is always distributed with a PGP signature "generate-wallet.html.sig" which you
-    can use to validate the integrity and authorship of this file like so:
-    
-    gpg --recv-key 36E1D9B6
-    gpg --verify --with-fingerprint generate-wallet.html.sig generate-wallet.html    
+	PiggyCoin fork Contact: neurocis / neurocis@gmail.com / www.piggy-coin.com
     
 	The bitcoinpaperwallet.com folding wallet design may not be used for commercial use
     without permission. The design of the bitcoin hologram sticker used to seal these wallets
@@ -26,6 +21,12 @@
     for significant contributions to this software.
     
     ****************************************************************************************
+    ****************************************************************************************
+    * This TeamPiggyCoin project forked from bitcoinpaperwallet.com and many thanks for the
+    * efforts of Canton Becker, Artiom Chilaru (BIP38 implementation) Martin Ankerl 
+	* (guilloche patterns), and 'pointbiz' (original bitaddress.org code). Please consider 
+	* donating to their project or purchasing supplies from bitcoinpaperwallet.com
+	* GitHub Repository: 	https://github.com/TeamPiggyCoin/PiggyCoinPaperWallet
     ****************************************************************************************
     * Contributions to support the bitcoinpaperwallet.com developers are extremely welcome.
     * Donations are shared between Canton Becker, Artiom Chilaru (BIP38 implementation)
@@ -81,7 +82,7 @@
 	WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	GitHub Repository: https://github.com/cantonbecker/bitcoinpaperwallet
+	GitHub Repository: https://github.com/TeamPiggyCoin/PiggyCoinPaperWallet
 	-->
 
 	<meta charset="utf-8">
@@ -93,32 +94,26 @@ function setCryptoCurrency(toThis) {
 	window.currencyName = toThis;
 	switch (toThis)
 	{
+	case 'Piggycoin':
+		window.networkVersion = 0x76;
+		window.privateKeyPrefix = 0xf6;
+		window.WIFPrefix = '9';
+		window.compressedWIFPrefix = 'd';
+		document.title = 'Piggycoin paper wallet generator. Oink! Oink!';
+		break;
 	case 'Bitcoin':	
 	  window.networkVersion = 0x00;
 	  window.privateKeyPrefix = 0x80;
 	  window.WIFPrefix = '5';
 	  window.compressedWIFPrefix = '[LK]';
+		document.title = 'Bitcoin paper wallet generator. Be true to your roots.';
 	  break;
-	case 'Litecoin':
-		window.networkVersion = 0x30;
-		window.privateKeyPrefix = 0xb0;
-		window.WIFPrefix = '6';
-		window.compressedWIFPrefix = 'T';
-		document.title = 'Litecoin paper wallet generator';
-		break;
 	case 'Dogecoin':
 		window.networkVersion = 0x1e;
 		window.privateKeyPrefix = 0x9e;
 		window.WIFPrefix = '6';
 		window.compressedWIFPrefix = 'Q';	
-		document.title = 'Dogecoin paper wallet generator. Wow! Many coin. Such shiny.';
-		break;
-	case 'Testnet':
-		window.networkVersion = 0x6F;
-		window.privateKeyPrefix = 0xEF;
-		window.WIFPrefix = '9';
-		window.compressedWIFPrefix = 'c';
-		document.title = 'Bitcoin TESTNET paper wallet generator';
+		document.title = 'Dogecoin paper wallet generator. Much thanks. Such helpfull!';
 		break;
 	default:
 	  alert ('Invalid cryptocurrency "' + toThis + '" at initialization. Defaulting to Bitcoin.');
@@ -138,14 +133,11 @@ var myDesign = getParameterByName('design');
 window.suppliesURL = 'https://bitcoinpaperwallet.com/?p=' + myDesign + '#purchase';
 
 switch (myDesign) {
-	case 'alt-litecoin':
-		setCryptoCurrency('Litecoin');
+	case 'alt-piggycoin':
+		setCryptoCurrency('Piggycoin');
 		break;
 	case 'alt-dogecoin':
 		setCryptoCurrency('Dogecoin');
-		break;
-	case 'alt-testnet':
-		setCryptoCurrency('Testnet');
 		break;
 	default:
 	setCryptoCurrency('Bitcoin');
@@ -10410,7 +10402,7 @@ Bitcoin.Util = {
               <span><a href="?culture=fr" id="culturefr">Français</a></span> -->
               &nbsp;
           	</div>
-			<div id="tagline">Open Source JavaScript <script type="text/javascript">document.write(window.currencyName);</script> Paper Wallet Generator <span>Updated Aug 31, 2014</span></div>
+			<div id="tagline">Open Source JavaScript <script type="text/javascript">document.write(window.currencyName);</script> Paper Wallet Generator <span>Updated Oct 31, 2014</span></div>
 			<div id="tagsite">For help, security tips, or wallet making supplies visit <a href="https://bitcoinpaperwallet.com">bitcoinpaperwallet.com</a></div>
             <div id="tagwarning"></div>
 			<div id="seedpoolarea"><textarea rows="16" cols="62" id="seedpool"></textarea></div>
@@ -10514,17 +10506,9 @@ Bitcoin.Util = {
 						<span id="instructions2">
                         <p style="margin-top: 0;"><strong>Change your wallet's design, language, or cryptocurrency here:</strong>
                           <select name="designPicker" id="designPicker" style="font-size: 12px;" onChange="setDesign(this.value, false);">
-                            <option value="default">Bitcoin</option>
-                            <option value="holiday">Holiday / Christmas Bitcoin (English)</option>
-                            <option value="chinese-new-year">Chinese New Year Bitcoin (Simplified Chinese)</option>
-                            <option value="traditional-chinese-new-year">Chinese New Year Bitcoin (Traditional Chinese)</option>
-                            <option value="hobbit">"Hobbitcoin" :)</option>
-                            <option value="custom">Your own custom Bitcoin design</option>
-                            <option value="default">--- Other Cryptocurrencies ---</option>
-                            <option value="alt-litecoin">Litecoin LTC</option>
+                            <option value="alt-piggycoin">Piggycoin PIGGY</option>
                             <option value="alt-dogecoin">Dogecoin DOGE</option>
-                            <option value="counterparty">Counterparty XCP</option>
-                            <option value="alt-testnet">"Testnet"</option>
+                            <option value="default">Bitcoin BTC</option>
                           </select>
                           <select name="langPicker" id="langPicker" style="font-size: 12px; display: inline;" onChange="setDesign('default', false, this.value);">
                             <option value="english">English</option>
@@ -10977,6 +10961,8 @@ Find your scissors! The final step is to cut out your wallet, fold it, and seal 
                     <strong>Litecoin</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LYrGQmrvba7qJZUD7Jt4S1iejE5ndhw3CE<br />
                     <strong>Dogecoin</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DSE875u8k14M3K5d93iD1fsgcHkfjjy742<br /></span>
                     
+                    <span class="item" style="font-size: 11px;">This is a TeamPiggyCoin fork of the excellent project <a href="https://bitcoinpaperwallet.com" target="_blank">bitcoinpaperwallet.com</a>, 
+                    please consider <strong>DONATING</strong> to its developers. Oink! Oink!</span>
                     <span class="item" style="font-size: 11px;">Contributions are shared by the <a href="https://bitcoinpaperwallet.com/#thanks" target="_blank">developers</a>, 
                     including pointbiz of <strong>bitaddress.org</strong>.</span>
 
@@ -11003,12 +10989,12 @@ Find your scissors! The final step is to cut out your wallet, fold it, and seal 
 
                 </div>
 
-            	<span class="item"><b>Security &amp; signatures</b></span>
+            	<span class="item"><b>Security</b></span>
                 <span class="item" style="font-size: 90%;">For <a href="https://bitcoinpaperwallet.com/#security" target="_blank">secure wallet generation</a>, do not print wallets "live" from bitcoinpaperwallet.com.<br />Instead, download this generator from GitHub and run the HTML as a "local" file:</span>
-				<span class="item"><a href="https://github.com/cantonbecker/bitcoinpaperwallet" target="_blank" id="footerlabelgithub"><strong>Secure Download</strong> (GitHub ZIP file)</a></span>
-                
+				<span class="item"><a href="https://github.com/TeamPiggyCoin/PiggyCoinPaperWallet" target="_blank" id="footerlabelgithub"><strong>Secure Download</strong> (GitHub ZIP file)</a></span>
+<!--                
 				<span class="item" id="footerlabelsig" style="font-size: 90%;"><a href="#" onClick="document.getElementById('siginfo').style.display='block'; return(false);">Validate PGP/GPG signature</a></span>
-
+-->
                 <span class="item" id="footerlabeltests" style="font-size: 90%;">Run unit tests: <a href="?unittests=1#tests">basic</a> | <a href="?asyncunittests=1#tests">async</a></span>
                 
 			</div>
