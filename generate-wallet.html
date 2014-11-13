@@ -139,6 +139,9 @@ switch (myDesign) {
 	case 'alt-piggycoin':
 		setCryptoCurrency('Piggycoin');
 		break;
+	case 'alt-piggycoin_special':
+		setCryptoCurrency('Piggycoin');
+		break;
 	case 'alt-dogecoin':
 		setCryptoCurrency('Dogecoin');
 		break;
@@ -10510,6 +10513,7 @@ Bitcoin.Util = {
                         <p style="margin-top: 0;"><strong>Change your wallet's design, language, or cryptocurrency here:</strong>
                           <select name="designPicker" id="designPicker" style="font-size: 12px;" onChange="setDesign(this.value, false);">
                             <option value="alt-piggycoin">Piggycoin PIGGY</option>
+                            <option value="alt-piggycoin_special">Piggycoin Special Edition PIGGY</option>
                             <option value="alt-dogecoin">Dogecoin DOGE</option>
                             <option value="default">Bitcoin BTC</option>
                           </select>
